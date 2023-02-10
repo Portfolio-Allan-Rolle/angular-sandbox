@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-12">
+        <p>Free JSON Placeholder API</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <ul class="list-group" *ngIf="users$ | async as users; else elseBlock">
+            <li class="list-group-item p-0 d-grid overflow-hidden" *ngFor="let user of users">
+                <button (click)="onSelectUser(user.id)" type="button"
+                    [ngClass]="{'active': user.id === (currentUserId$ | async)}"
+                    class="btn btn-light rounded-0">{{user.name}}</button>
+            </li>
+        </ul>
+        <ng-template #elseBlock>
+            <div *ngIf="!(usersHttpHasError$ | async) as error">
+                <div id="loader-1" class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </ng-template>
+        <div *ngIf="usersHttpError$ | async as error">
+            <p>{{ error?.message }}</p>
+            <p>Check Console for more details</p>
+        </div>
+        <div>
+            <div id="avatar" *ngIf="userAvatar$ | async as userAvatar; else loadingBlock">
+                <p>Avatar:</p>
+                <img style="width: 300px;" [src]="userAvatar.url" [alt]="userAvatar.title" />
+                <p>{{userAvatar.id}}</p>
+            </div>
+            <ng-template #loadingBlock>
+                <div id="loader-2">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+    <div class=" col-9">
+        <div id="posts" *ngIf="postsByUser$ | async as posts; else postsByUserLoading">
+            <div class="card p-2 mb-2" *ngFor="let post of posts">
+                <p><strong>Title</strong>: {{post.title}}</p>
+                <p><strong>Comment</strong>: {{post.body}}</p>
+            </div>
+        </div>
+        <ng-template #postsByUserLoading>
+            <div id="loader-3" class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </ng-template>
+    </div>
+</div>
