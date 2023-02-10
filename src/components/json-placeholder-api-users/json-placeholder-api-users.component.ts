@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { UserService } from '../user.service';
+import { UserService } from './models/user.service';
 
 @Component({
   selector: 'app-json-placeholder-api-users',

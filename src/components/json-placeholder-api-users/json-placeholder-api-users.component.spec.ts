@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { JsonPlaceholderApiUsersComponent } from './json-placeholder-api-users.component';
-import { dummyPhotosAPI, dummyPostsAPI, dummyUsersAPI } from '../models';
-import { UserService } from '../user.service';
+import { dummyPhotosAPI, dummyPostsAPI, dummyUsersAPI } from './models/models';
+import { UserService } from './models/user.service';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
 
