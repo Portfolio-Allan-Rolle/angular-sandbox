@@ -119,4 +119,53 @@ describe('UserService', () => {
     })
   });
 
+  it('returns an error message when POST API fail', () => {
+    service.allPosts$.subscribe({
+      next: () => fail('fail to retrieve users'),
+      error: (error: HttpErrorResponse) => {
+        expect(error.status).toBe(500);
+        expect(error.statusText).toBe('Internal Server Error');
+      },
+      complete: () => fail('fail to complete')
+    })
+
+    const request = controller.expectOne(service.POST_URL);
+
+    expect(request.request.method).toEqual('GET');
+
+    request.flush('Retrieve Users failed', {
+      status: 500,
+      statusText: 'Internal Server Error'
+    })
+  });
+
+  it('returns an error message when IMAGES API fail', () => {
+    service.userAvatar$.subscribe({
+      next: () => fail('fail to retrieve users'),
+      error: (error: HttpErrorResponse) => {
+        expect(error.status).toBe(500);
+        expect(error.statusText).toBe('Internal Server Error');
+      },
+      complete: () => fail('fail to complete')
+    })
+
+    const request = controller.expectOne(service.IMAGES_URL + '/1');
+
+    expect(request.request.method).toEqual('GET');
+
+    request.flush('Retrieve Users failed', {
+      status: 500,
+      statusText: 'Internal Server Error'
+    })
+  });
+
+  it('returns the correct id when selecting a user', () => {
+    service.changeSelectedUser(4);
+    let result = 1;
+    service.userSelectedAction$.subscribe(
+      id => result = id
+    )
+    expect(result).toEqual(4)
+  });
+
 });

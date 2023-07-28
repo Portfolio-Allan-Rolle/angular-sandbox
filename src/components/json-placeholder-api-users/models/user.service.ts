@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, distinctUntilChanged, map, switchMap, tap } from 'rxjs/operators';
+import { catchError, delay, distinctUntilChanged, map, share, shareReplay, startWith, switchMap, tap } from 'rxjs/operators';
 import { combineLatest, BehaviorSubject, throwError, of } from 'rxjs';
 
 @Injectable({
@@ -16,22 +16,24 @@ export class UserService {
   private userSelectedAction = new BehaviorSubject<number>(this.userIdStart);
   userSelectedAction$ = this.userSelectedAction.asObservable();
 
-  usersHttpHasError$ = new BehaviorSubject(false);
   usersHttpError$ = new BehaviorSubject<any>(null);
+  avatarHttpError$ = new BehaviorSubject<any>(null);
+  postsHttpError$ = new BehaviorSubject<any>(null);
 
   allUsers$ = this.http.get<any>(this.USERS_URL).pipe(
     catchError((err) => {
-      this.usersHttpHasError$.next(true);
       this.usersHttpError$.next(err);
       return throwError(() => err)
-    })
+    }),
+    share(),
   );
 
   allPosts$ = this.http.get<any>(this.POST_URL).pipe(
     catchError((err) => {
-      this.handleError(err.message);
-      return throwError(() => new Error(err))
-    })
+      this.postsHttpError$.next(err);
+      return throwError(() => err)
+    }),
+    share()
   );
 
   postsByUser$ = combineLatest(
@@ -48,9 +50,10 @@ export class UserService {
       return this.http.get<any>(this.IMAGES_URL + '/' + id)
     }),
     catchError((err) => {
-      this.handleError(err.message);
-      return throwError(() => new Error(err))
-    })
+      this.avatarHttpError$.next(err);
+      return throwError(() => err)
+    }),
+    share()
   )
 
   constructor(
@@ -59,9 +62,5 @@ export class UserService {
 
   changeSelectedUser(userId: number): void {
     this.userSelectedAction.next(userId);
-  }
-
-  handleError(err: any) {
-    console.log(err)
   }
 }

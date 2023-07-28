@@ -10,11 +10,12 @@ import { UserService } from './models/user.service';
 export class JsonPlaceholderApiUsersComponent implements OnInit {
 
   users$ = this.userService.allUsers$;
-  postsByUser$ = this.userService.postsByUser$;
-  userAvatar$ = this.userService.userAvatar$;
-  currentUserId$: Observable<number> = of(this.userService.userIdStart);
-  usersHttpHasError$ = this.userService.usersHttpHasError$;
   usersHttpError$ = this.userService.usersHttpError$;
+  postsByUser$ = this.userService.postsByUser$;
+  postsHttpError$ = this.userService.postsHttpError$;
+  userAvatar$ = this.userService.userAvatar$;
+  avatarHttpError$ = this.userService.avatarHttpError$;
+  currentUserId$: Observable<number> = of(this.userService.userIdStart);
 
   constructor(
     private userService: UserService
