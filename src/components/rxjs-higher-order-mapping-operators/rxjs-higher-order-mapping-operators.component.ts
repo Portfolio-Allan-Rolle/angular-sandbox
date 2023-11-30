@@ -18,7 +18,7 @@ export class RxjsHigherOrderMappingOperatorsComponent implements OnInit {
 
   ngOnInit(): void {
     this.source$.pipe(
-      concatMap(id => this.httpCall(id))
+      switchMap(id => this.httpCall(id))
     ).subscribe({
       next: v => console.log(v),
       error: err => console.error('ERR: ', err),

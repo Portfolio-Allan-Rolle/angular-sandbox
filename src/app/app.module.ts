@@ -9,6 +9,7 @@ import { ColorChangerComponent } from '../components/color-changer/color-changer
 import { HoverEffectComponent } from '../components/hover-effect/hover-effect.component';
 import { FancyTabsComponent } from '../components/fancy-tabs/fancy-tabs.component';
 import { RxjsHigherOrderMappingOperatorsComponent } from '../components/rxjs-higher-order-mapping-operators/rxjs-higher-order-mapping-operators.component';
+import { RxjsOfComponent } from '../components/rxjs-of/rxjs-of.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { RxjsHigherOrderMappingOperatorsComponent } from '../components/rxjs-hig
     HoverEffectComponent,
     FancyTabsComponent,
     RxjsHigherOrderMappingOperatorsComponent,
+    RxjsOfComponent,
   ],
   imports: [
     BrowserModule,
