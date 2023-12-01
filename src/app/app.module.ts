@@ -10,6 +10,7 @@ import { HoverEffectComponent } from '../components/hover-effect/hover-effect.co
 import { FancyTabsComponent } from '../components/fancy-tabs/fancy-tabs.component';
 import { RxjsHigherOrderMappingOperatorsComponent } from '../components/rxjs-higher-order-mapping-operators/rxjs-higher-order-mapping-operators.component';
 import { RxjsOfComponent } from '../components/rxjs-of/rxjs-of.component';
+import { RxjsScanOperatorComponent } from '../components/rxjs-scan-operator/rxjs-scan-operator.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { RxjsOfComponent } from '../components/rxjs-of/rxjs-of.component';
     FancyTabsComponent,
     RxjsHigherOrderMappingOperatorsComponent,
     RxjsOfComponent,
+    RxjsScanOperatorComponent,
   ],
   imports: [
     BrowserModule,

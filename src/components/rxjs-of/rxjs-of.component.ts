@@ -38,10 +38,10 @@ export class RxjsOfComponent implements OnInit {
 
 
     const rollDice2$ = rollDiceHot();
-    rollDice2$.subscribe(console.log);
-    rollDice2$.subscribe(console.log);
-    rollDice2$.subscribe(console.log);
-    rollDice2$.subscribe(console.log);
+    // rollDice2$.subscribe(console.log);
+    // rollDice2$.subscribe(console.log);
+    // rollDice2$.subscribe(console.log);
+    // rollDice2$.subscribe(console.log);
 
   }
 
