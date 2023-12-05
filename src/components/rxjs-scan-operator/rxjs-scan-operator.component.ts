@@ -22,7 +22,6 @@ export class RxjsScanOperatorComponent implements OnInit {
   //     )
   //   })
   //  ).subscribe(console.log)
-
   }
 
 }

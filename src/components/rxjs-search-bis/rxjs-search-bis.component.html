@@ -1,0 +1,9 @@
+<form>
+    <input type="text" placeholder="Search for a brand !" [formControl]="search"/>
+</form>
+
+<div>
+    <ul>
+        <li *ngFor="let brand of data$ | async"> {{brand}}</li>
+    </ul>
+</div>
