@@ -15,6 +15,7 @@ import { RxjsScanOperatorComponent } from '../components/rxjs-scan-operator/rxjs
 import { RxjsSearchComponent } from '../components/rxjs-search/rxjs-search.component';
 import { SearchPipe } from '../components/rxjs-search/pipes/search.pipe';
 import { RxjsSearchBisComponent } from '../components/rxjs-search-bis/rxjs-search-bis.component';
+import { ReactiveFormExerciceComponent } from '../components/reactive-form-exercice/reactive-form-exercice.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { RxjsSearchBisComponent } from '../components/rxjs-search-bis/rxjs-searc
     RxjsSearchComponent,
     SearchPipe,
     RxjsSearchBisComponent,
+    ReactiveFormExerciceComponent,
   ],
   imports: [
     BrowserModule,

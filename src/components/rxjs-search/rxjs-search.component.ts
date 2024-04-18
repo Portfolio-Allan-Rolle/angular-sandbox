@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { Observable, combineLatest, concatMap, filter, forkJoin, from, map, mergeMap, of, startWith, tap, toArray, withLatestFrom } from 'rxjs';
 
 @Component({
   selector: 'app-rxjs-search',

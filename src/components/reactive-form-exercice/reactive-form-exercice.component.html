@@ -1,0 +1,66 @@
+<h1>Reactive Forms</h1>
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div formGroupName="candidate">
+    <div>
+      <span>Last Name:</span>
+      <input
+        type="text"
+        placeholder="last name..."
+        formControlName="lastName"
+      />
+    </div>
+    <hr />
+    <div>
+      <span>First Name:</span>
+      <input
+        type="text"
+        placeholder="first name..."
+        formControlName="firstName"
+      />
+    </div>
+    <hr />
+    <div>
+      <span>Age:</span>
+      <input type="text" placeholder="age..." formControlName="age" />
+    </div>
+    <hr />
+    <p>Expériences:</p>
+    <div formArrayName="experience">
+      <div
+        *ngFor="
+          let experience of myForm.controls.candidate.controls.experience
+            .controls;
+          let expIndex = index
+        "
+      >
+        <div [formGroupName]="expIndex">
+          <div>
+            <span>Company Name:</span>
+            <input
+              type="text"
+              placeholder="Company name..."
+              formControlName="companyName"
+            />
+          </div>
+          <div>
+            <span>Duration:</span>
+            <input
+              type="text"
+              placeholder="Duration..."
+              formControlName="duration"
+            />
+          </div>
+          <button (click)="removeExperience(expIndex)">Remove Experience</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <button type="button" (click)="addExperience()">Add Experience</button><br />
+  <button type="submit" (click)="onSubmit()">Submit</button>
+</form>
+
+<pre>
+    {{ myForm.value | json }}
+</pre>
