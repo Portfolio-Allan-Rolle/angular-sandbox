@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.retirement {
+  width: 400px;
+}
+
+.retirement__top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.retirement__amount {
+    width: 40%;
+}
+
+.retirement__savings {
+    width: 40%;
+    text-align: right;
+}
+
+.retirement__amount--text {
+}
+
+.retirement__amount--amount:after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  border-bottom: 1px solid grey;
+}
+
+.retirement__amount--percentage {
+}
+
+.retirement__bottom {
+}
+
+.retirement__bottom--input {
+  width: 100%;
+  cursor: pointer;
+}

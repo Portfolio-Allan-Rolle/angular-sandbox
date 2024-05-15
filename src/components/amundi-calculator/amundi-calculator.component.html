@@ -1,0 +1,20 @@
+<h1>Amundi Calculator</h1>
+<div class="container">
+  <div class="retirement">
+    <div class="retirement__top">
+      <div class="retirement__amount">
+        <p class="retirement__amount--text">Percevoir directement</p>
+        <p class="retirement__amount--amount">{{total()}}€</p>
+        <p class="retirement__amount--percentage">{{percentageWithdrawn()}}%</p>
+      </div>
+      <div class="retirement__savings">
+        <p class="retirement__amount--text">Epargner</p>
+        <p class="retirement__amount--amount">{{(totalSavings().toFixed(2))}}€</p>
+        <p class="retirement__amount--percentage">{{percentageSavings()}}%</p>
+      </div>
+    </div>
+    <div class="retirement__bottom">
+      <input #input (input)="onChange($event)" class="retirement__bottom--input" type="range" min="0" max="100" />
+    </div>
+  </div>
+</div>
