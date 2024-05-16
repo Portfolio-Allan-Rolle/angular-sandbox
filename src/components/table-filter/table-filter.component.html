@@ -1,0 +1,49 @@
+<h1>Filter data with signals !</h1>
+<header>
+  <div>
+    <label for="name">Name:</label>
+    <input
+      [formControl]="name"
+      id="name"
+      type="text"
+      placeholder="Filter by name..."
+    />
+  </div>
+  <div>
+    <label for="username">Username:</label>
+    <input
+      [formControl]="username"
+      id="username"
+      type="text"
+      placeholder="Filter by username..."
+    />
+  </div>
+  <div>
+    <label for="retirement">Retired:</label>
+    <input [formControl]="retired" id="retirement" type="checkbox" />
+  </div>
+</header>
+<table>
+  <thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>City</th>
+    <th>Phone</th>
+    <th>Website</th>
+    <th>In retirement</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of data$()">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.city }}</td>
+      <td>{{ user.phone }}</td>
+      <td>{{ user.website }}</td>
+      <td>{{ user.isRetired }}</td>
+    </tr>
+  </tbody>
+</table>

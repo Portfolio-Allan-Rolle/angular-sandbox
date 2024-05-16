@@ -17,6 +17,7 @@ import { SearchPipe } from '../components/rxjs-search/pipes/search.pipe';
 import { RxjsSearchBisComponent } from '../components/rxjs-search-bis/rxjs-search-bis.component';
 import { ReactiveFormExerciceComponent } from '../components/reactive-form-exercice/reactive-form-exercice.component';
 import { AmundiCalculatorComponent } from 'src/components/amundi-calculator/amundi-calculator.component';
+import { TableFilterComponent } from 'src/components/table-filter/table-filter.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AmundiCalculatorComponent } from 'src/components/amundi-calculator/amun
     RxjsSearchBisComponent,
     ReactiveFormExerciceComponent,
     AmundiCalculatorComponent,
+    TableFilterComponent
   ],
   imports: [
     BrowserModule,
