@@ -18,6 +18,7 @@ import { RxjsSearchBisComponent } from '../components/rxjs-search-bis/rxjs-searc
 import { ReactiveFormExerciceComponent } from '../components/reactive-form-exercice/reactive-form-exercice.component';
 import { AmundiCalculatorComponent } from 'src/components/amundi-calculator/amundi-calculator.component';
 import { TableFilterComponent } from 'src/components/table-filter/table-filter.component';
+import { CommunicationComponent } from 'src/components/communication/communication.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TableFilterComponent } from 'src/components/table-filter/table-filter.c
     RxjsSearchBisComponent,
     ReactiveFormExerciceComponent,
     AmundiCalculatorComponent,
-    TableFilterComponent
+    TableFilterComponent,
+    CommunicationComponent,
   ],
   imports: [
     BrowserModule,
