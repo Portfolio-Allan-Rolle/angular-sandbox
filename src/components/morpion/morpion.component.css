@@ -1,0 +1,48 @@
+.grid {
+  border: 1px solid black;
+  width: 250px;
+  height: 250px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+}
+
+.grid-cell {
+    position: relative;
+}
+
+.played {
+  pointer-events: none;
+  cursor: not-allowed;
+  background-color: darkgray;
+}
+
+.over {
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: rgba(255, 99, 71, 0.5);
+        z-index: 1;
+    }
+}
+
+.player-x {
+  &::before {
+    content: "X";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.player-o {
+  &::before {
+    content: "0";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

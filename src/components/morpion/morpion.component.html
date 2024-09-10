@@ -1,0 +1,23 @@
+<h1>Tic-Tac-Toe</h1>
+<p><button (click)="onReset()">Reset</button></p>
+<p>Turn : {{ player() }}</p>
+<div class="grid" [class.over]="gameOver() || newGridArray.length == counter()">
+  @for (cell of gridOriginal(); track cell) {
+  <button
+    class="grid-cell"
+    [ngClass]="{
+      'player-x': cell.player === 'X',
+      'player-o': cell.player === 'O'
+    }"
+    [class.played]="cell.played"
+    (click)="onCellSelect(cell)"
+  ></button>
+  }
+</div>
+<br />
+@if(winner()) {
+<p>The winner is {{ winner() }} !</p>
+}
+@if(newGridArray.length == counter()) {
+    <p>Draw game !</p>
+}

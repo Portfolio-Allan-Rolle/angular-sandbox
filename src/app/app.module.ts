@@ -19,6 +19,8 @@ import { ReactiveFormExerciceComponent } from '../components/reactive-form-exerc
 import { AmundiCalculatorComponent } from 'src/components/amundi-calculator/amundi-calculator.component';
 import { TableFilterComponent } from 'src/components/table-filter/table-filter.component';
 import { CommunicationComponent } from 'src/components/communication/communication.component';
+import { JavascriptSandboxComponent } from 'src/components/javascript-sandbox/javascript-sandbox.component';
+import { MorpionComponent } from "../components/morpion/morpion.component";
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { CommunicationComponent } from 'src/components/communication/communicati
     AmundiCalculatorComponent,
     TableFilterComponent,
     CommunicationComponent,
+    JavascriptSandboxComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import { CommunicationComponent } from 'src/components/communication/communicati
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-  ],
+    MorpionComponent
+],
   providers: [],
   bootstrap: [AppComponent],
 })
