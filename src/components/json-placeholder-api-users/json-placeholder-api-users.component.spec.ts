@@ -13,10 +13,9 @@ describe('JsonPlaceholderApiUsersComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [JsonPlaceholderApiUsersComponent],
-      imports: [HttpClientTestingModule],
-      providers: [UserService]
-    })
+    imports: [HttpClientTestingModule, JsonPlaceholderApiUsersComponent],
+    providers: [UserService]
+})
     service = TestBed.inject(UserService);
     fixture = TestBed.createComponent(JsonPlaceholderApiUsersComponent);
     component = fixture.componentInstance;

@@ -8,8 +8,8 @@ describe('RxjsScanOperatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RxjsScanOperatorComponent ]
-    })
+    imports: [RxjsScanOperatorComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(RxjsScanOperatorComponent);

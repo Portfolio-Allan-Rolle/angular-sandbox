@@ -8,8 +8,8 @@ describe('RxjsHigherOrderMappingOperatorsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RxjsHigherOrderMappingOperatorsComponent ]
-    })
+    imports: [RxjsHigherOrderMappingOperatorsComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(RxjsHigherOrderMappingOperatorsComponent);

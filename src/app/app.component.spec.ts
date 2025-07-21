@@ -5,13 +5,11 @@ import { AppComponent } from './app.component';
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-      schemas: [
+    imports: [AppComponent],
+    schemas: [
         CUSTOM_ELEMENTS_SCHEMA
-      ]
-    }).compileComponents();
+    ]
+}).compileComponents();
   });
 
   it('should render title', () => {

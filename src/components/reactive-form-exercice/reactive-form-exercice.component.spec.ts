@@ -8,8 +8,8 @@ describe('ReactiveFormExerciceComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReactiveFormExerciceComponent ]
-    })
+    imports: [ReactiveFormExerciceComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(ReactiveFormExerciceComponent);

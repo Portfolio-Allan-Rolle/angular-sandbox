@@ -9,8 +9,8 @@ describe('HoverEffectComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HoverEffectComponent]
-    })
+    imports: [HoverEffectComponent]
+})
       .compileComponents();
 
     fixture = TestBed.createComponent(HoverEffectComponent);

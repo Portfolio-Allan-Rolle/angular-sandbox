@@ -8,8 +8,8 @@ describe('RxjsOfComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RxjsOfComponent ]
-    })
+    imports: [RxjsOfComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(RxjsOfComponent);

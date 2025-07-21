@@ -8,8 +8,8 @@ describe('RxjsSearchComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RxjsSearchComponent ]
-    })
+    imports: [RxjsSearchComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(RxjsSearchComponent);

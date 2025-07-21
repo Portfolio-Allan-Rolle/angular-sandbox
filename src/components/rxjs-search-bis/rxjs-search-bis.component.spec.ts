@@ -8,8 +8,8 @@ describe('RxjsSearchBisComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RxjsSearchBisComponent ]
-    })
+    imports: [RxjsSearchBisComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(RxjsSearchBisComponent);

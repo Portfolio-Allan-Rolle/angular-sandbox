@@ -1,10 +1,9 @@
 import { Component, signal, AfterViewInit, ElementRef, ViewChild, computed } from '@angular/core';
 
 @Component({
-  selector: 'app-amundi-calculator',
-  standalone: false,
-  templateUrl: './amundi-calculator.component.html',
-  styleUrl: './amundi-calculator.component.css',
+    selector: 'app-amundi-calculator',
+    templateUrl: './amundi-calculator.component.html',
+    styleUrl: './amundi-calculator.component.css',
 })
 export class AmundiCalculatorComponent implements AfterViewInit {
   private amount = 428;
