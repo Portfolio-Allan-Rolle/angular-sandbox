@@ -1,11 +1,13 @@
 import { Component, signal } from '@angular/core';
+import { AmundiCalculatorComponent } from 'src/components/amundi-calculator/amundi-calculator.component';
 import { MorpionComponent } from 'src/components/morpion/morpion.component';
+import { FancyTabsComponent } from 'src/components/fancy-tabs/fancy-tabs.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  imports: [MorpionComponent],
+  imports: [MorpionComponent, AmundiCalculatorComponent, FancyTabsComponent],
 })
 export class AppComponent {
   title = 'sandbox';

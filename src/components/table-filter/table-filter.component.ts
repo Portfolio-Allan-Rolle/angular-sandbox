@@ -1,12 +1,14 @@
+import { CommonModule } from '@angular/common';
 import { Component, computed } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { FormControl } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { startWith } from 'rxjs';
 
 @Component({
   selector: 'app-table-filter',
   templateUrl: './table-filter.component.html',
   styleUrl: './table-filter.component.css',
+  imports: [ReactiveFormsModule, CommonModule],
 })
 export class TableFilterComponent {
   public name = new FormControl();
@@ -14,7 +16,9 @@ export class TableFilterComponent {
   public retired = new FormControl();
   private name$ = toSignal(this.name.valueChanges.pipe(startWith('')));
   private username$ = toSignal(this.username.valueChanges.pipe(startWith('')));
-  private isRetired$ = toSignal(this.retired.valueChanges.pipe(startWith(false)));
+  private isRetired$ = toSignal(
+    this.retired.valueChanges.pipe(startWith(false))
+  );
 
   private readonly users = [
     {
@@ -121,11 +125,13 @@ export class TableFilterComponent {
 
   public data$ = computed(() => {
     return this.users.filter((user) => {
-      const name = user.name.toLowerCase().includes(this.name$().toLowerCase())
-      const username = user.username.toLowerCase().includes(this.username$().toLowerCase());
-      const isRetired = this.isRetired$() ? user.isRetired : true
+      const name = user.name.toLowerCase().includes(this.name$().toLowerCase());
+      const username = user.username
+        .toLowerCase()
+        .includes(this.username$().toLowerCase());
+      const isRetired = this.isRetired$() ? user.isRetired : true;
 
-      return name && username && isRetired
+      return name && username && isRetired;
     });
   });
 }
