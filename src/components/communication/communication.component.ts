@@ -1,11 +1,13 @@
 import { Component, input, model, output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-communication',
   templateUrl: './communication.component.html',
   styleUrl: './communication.component.css',
+  imports: [FormsModule],
 })
-export class CommunicationComponent  {
+export class CommunicationComponent {
   public inputData = input.required<number>();
   public onOutputChange = output<number>();
 
