@@ -1,58 +1,61 @@
 <div class="row">
-    <div class="col-12">
-        <p>Free JSON Placeholder API</p>
-    </div>
+  <div class="col-12">
+    <p>Free JSON Placeholder API</p>
+  </div>
 </div>
 <div class="row">
-    <div class="col-3">
-        <ul id="users" class="list-group" *ngIf="users$ | async as users">
-            <li class="list-group-item p-0 d-grid overflow-hidden" *ngFor="let user of users">
-                <button id="btn" (click)="onSelectUser(user.id)" type="button"
-                    [ngClass]="{'active': user.id === (currentUserId$ | async)}"
-                    class="btn btn-light rounded-0">{{user.name}}</button>
-            </li>
-        </ul>
-        <div id="loader-1" *ngIf="!(users$ | async) && !(usersHttpError$ | async)">
-            <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-        </div>
-        <div *ngIf="(usersHttpError$ | async) as error">
-            <p>{{ error?.message }}</p>
-            <p>Check Console for more details</p>
-        </div>
-        <div>
-            <div id="avatar" *ngIf="userAvatar$ | async as userAvatar">
-                <p>Avatar:</p>
-                <img style="width: 300px;" [src]="userAvatar.url" [alt]="userAvatar.title" />
-                <p>{{userAvatar.id}}</p>
-            </div>
-            <div id="loader-2" *ngIf="!(userAvatar$ | async) && !(avatarHttpError$ | async)">
-                <div class="spinner-border" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-            </div>
-            <div *ngIf="(avatarHttpError$ | async) as error">
-                <p>{{ error?.message }}</p>
-                <p>Check Console for more details</p>
-            </div>
-        </div>
+  <div class="col-3">
+    <ul id="users" class="list-group" *ngIf="users$ | async as users">
+      <li
+        class="list-group-item p-0 d-grid overflow-hidden"
+        *ngFor="let user of users"
+      >
+        <button
+          id="btn"
+          (click)="onSelectUser(user.id)"
+          type="button"
+          [ngClass]="{ active: user.id === (currentUserId$ | async) }"
+          class="btn btn-light rounded-0"
+        >
+          {{ user.name }}
+        </button>
+      </li>
+    </ul>
+    <div id="loader-1" *ngIf="!(users$ | async) && !(usersHttpError$ | async)">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
     </div>
-    <div class=" col-9">
-        <div id="posts" *ngIf="postsByUser$ | async as posts">
-            <div class="card p-2 mb-2" *ngFor="let post of posts">
-                <p><strong>Title</strong>: {{post.title}}</p>
-                <p><strong>Comment</strong>: {{post.body}}</p>
-            </div>
-        </div>
-        <div id="loader-3" *ngIf="!(postsByUser$ | async) && !(postsHttpError$ | async)" class="spinner-border"
-            role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        <div *ngIf="(postsHttpError$ | async) as error">
-            <p>{{ error?.message }}</p>
-            <p>Check Console for more details</p>
-        </div>
-
+    <div *ngIf="usersHttpError$ | async as error">
+      <p>{{ error?.message }}</p>
+      <p>Check Console for more details</p>
     </div>
+    <div>
+      <div id="avatar" *ngIf="currentUserId$ | async as currentUserId">
+        <p>Avatar:</p>
+        <img [src]="'https://picsum.photos/id/' + currentUserId + '/200/300'" />
+        <p>{{ currentUserId }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-9">
+    <div id="posts" *ngIf="postsByUser$ | async as posts">
+      <div class="card p-2 mb-2" *ngFor="let post of posts">
+        <p><strong>Title</strong>: {{ post.title }}</p>
+        <p><strong>Comment</strong>: {{ post.body }}</p>
+      </div>
+    </div>
+    <div
+      id="loader-3"
+      *ngIf="!(postsByUser$ | async) && !(postsHttpError$ | async)"
+      class="spinner-border"
+      role="status"
+    >
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div *ngIf="postsHttpError$ | async as error">
+      <p>{{ error?.message }}</p>
+      <p>Check Console for more details</p>
+    </div>
+  </div>
 </div>

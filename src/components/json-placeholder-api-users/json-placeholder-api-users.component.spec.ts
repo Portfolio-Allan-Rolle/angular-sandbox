@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { JsonPlaceholderApiUsersComponent } from './json-placeholder-api-users.component';
-import { dummyPhotosAPI, dummyPostsAPI, dummyUsersAPI } from './models/models';
 import { UserService } from './models/user.service';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
+import { dummyPostsAPI, dummyUsersAPI } from './models/models';
 
 describe('JsonPlaceholderApiUsersComponent', () => {
   let component: JsonPlaceholderApiUsersComponent;
@@ -13,9 +13,9 @@ describe('JsonPlaceholderApiUsersComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    imports: [HttpClientTestingModule, JsonPlaceholderApiUsersComponent],
-    providers: [UserService]
-})
+      imports: [HttpClientTestingModule, JsonPlaceholderApiUsersComponent],
+      providers: [UserService],
+    });
     service = TestBed.inject(UserService);
     fixture = TestBed.createComponent(JsonPlaceholderApiUsersComponent);
     component = fixture.componentInstance;
@@ -34,23 +34,6 @@ describe('JsonPlaceholderApiUsersComponent', () => {
     fixture.detectChanges();
     const el = fixture.debugElement.query(By.css('#loader-1'));
     const el2 = fixture.debugElement.query(By.css('#users'));
-    expect(el).toBeTruthy();
-    expect(el2).toBeFalsy();
-  });
-
-  it('should return the user avatar', () => {
-    component.userAvatar$ = of(dummyPhotosAPI);
-    fixture.detectChanges();
-    const el = fixture.debugElement.query(By.css('#avatar'));
-    expect(el).toBeTruthy();
-  });
-
-  it('should return a loader when there are no avatar', () => {
-    component.usersHttpError$.next(true);
-    component.userAvatar$ = of(false);
-    fixture.detectChanges();
-    const el = fixture.debugElement.query(By.css('#loader-2'));
-    const el2 = fixture.debugElement.query(By.css('#avatar'));
     expect(el).toBeTruthy();
     expect(el2).toBeFalsy();
   });
@@ -89,5 +72,5 @@ describe('JsonPlaceholderApiUsersComponent', () => {
     const btn = fixture.debugElement.query(By.css('#btn')).nativeElement;
     btn.click();
     expect(componentSpy).toHaveBeenCalled();
-  })
+  });
 });

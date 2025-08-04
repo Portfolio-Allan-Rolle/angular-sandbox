@@ -1,15 +1,15 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'search'
+  name: 'search',
 })
 export class SearchPipe implements PipeTransform {
-
-  transform(value: any, args?: any): any {
-    //console.log('value', value, 'args', args)
-    if(!value) return null;
-    if(!args) return value;
-    return value.filter((el:any) => JSON.stringify(el).toLowerCase().includes(args))
+  transform(brands: string[], searchTerm: string): string[] {
+    if (!brands) {
+      throw new Error('An array must be provided !');
+    }
+    return brands.filter((brand: string) =>
+      JSON.stringify(brand).toLowerCase().includes(searchTerm.trim())
+    );
   }
-
 }

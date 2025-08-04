@@ -1,10 +1,11 @@
 <div>
-    <div>
-        <input type="text" placeholder="search for a brand !" [(ngModel)]="term"/>
-    </div>
+  <div>
+    <input type="text" placeholder="search for a brand !" [(ngModel)]="term" />
+    {{ term }}
+  </div>
 </div>
 <div>
-    <ul>
-        <li *ngFor="let brand of brands | search: term">{{ brand }}</li>
-    </ul>
+  <ul>
+    <li *ngFor="let brand of brands | search : term">{{ brand }}</li>
+  </ul>
 </div>
