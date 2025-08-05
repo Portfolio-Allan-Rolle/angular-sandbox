@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 
 interface ICell {
   index: number;
@@ -14,7 +14,10 @@ interface ICell {
   templateUrl: './morpion.component.html',
   styleUrl: './morpion.component.css',
 })
-export class MorpionComponent {
+export class MorpionComponent implements OnInit {
+  ngOnInit(): void {
+    console.log('morpion');
+  }
   public winner = signal<null | string>(null);
   public gameOver = signal(false);
   public player = signal('X');
