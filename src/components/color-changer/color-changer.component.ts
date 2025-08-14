@@ -1,23 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HostBinding } from '@angular/core';
+import { ComponentReadme } from '../component-readme/component-readme';
 
 @Component({
   selector: 'app-color-changer',
   templateUrl: './color-changer.component.html',
-  styleUrls: ['./color-changer.component.css']
+  styleUrls: ['./color-changer.component.css'],
+  imports: [ComponentReadme],
 })
-export class ColorChangerComponent implements OnInit {
+export class ColorChangerComponent {
+  @HostBinding('style.backgroundColor') bgColor = 'green';
 
-  @HostBinding('style.backgroundColor') bgColor = "green";
-
-  constructor() { }
-
-  ngOnInit(): void {
-
-  }
+  constructor() {}
 
   changeBackgroundColor() {
-    this.bgColor = "#FF0000";
+    this.bgColor = '#FF0000';
   }
 
+  resetBackgroundColor() {
+    this.bgColor = 'green';
+  }
 }

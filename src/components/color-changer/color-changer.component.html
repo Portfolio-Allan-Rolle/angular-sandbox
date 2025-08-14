@@ -1,3 +1,8 @@
 <div>
-    <button id="btn" (click)="changeBackgroundColor()">Change background color</button>
+  <button id="btn" (click)="changeBackgroundColor()">
+    Change background color
+  </button>
+  <button (click)="resetBackgroundColor()">Reset Background color</button>
 </div>
+
+<app-component-readme [content]="['Use the decorator @HostBinding']" />

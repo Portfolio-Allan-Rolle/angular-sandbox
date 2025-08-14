@@ -17,7 +17,13 @@
 <br />
 @if(winner()) {
 <p>The winner is {{ winner() }} !</p>
+} @if(newGridArray.length == counter()) {
+<p>Draw game !</p>
 }
-@if(newGridArray.length == counter()) {
-    <p>Draw game !</p>
-}
+
+<app-component-readme
+  [content]="[
+    'Create a Tic-Tac-Toe Game in Angular',
+    'Try the new Signals API'
+  ]"
+/>

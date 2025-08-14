@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { MorpionComponent } from 'src/components/morpion/morpion.component';
 
 export const routes: Routes = [
   {
@@ -14,6 +13,20 @@ export const routes: Routes = [
     loadComponent: () =>
       import('../components/morpion/morpion.component').then(
         (m) => m.MorpionComponent
+      ),
+  },
+  {
+    path: 'color-changer',
+    loadComponent: () =>
+      import('../components/color-changer/color-changer.component').then(
+        (m) => m.ColorChangerComponent
+      ),
+  },
+  {
+    path: 'hover-effect',
+    loadComponent: () =>
+      import('../components/hover-effect/hover-effect.component').then(
+        (m) => m.HoverEffectComponent
       ),
   },
 ];
